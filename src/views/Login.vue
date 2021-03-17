@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import axios from "axios";
+import { axios } from "../services/api";
 import { isLogin, setProfile } from "../services/credential";
 import { router } from "../router";
 
@@ -40,7 +40,7 @@ export default {
   methods: {
     login() {
       axios
-        .post("http://localhost:1234/api/login", this.user)
+        .post("/api/login", this.user)
         .then((res) => {
           this.successLogin(res.data);
         })

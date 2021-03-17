@@ -1,5 +1,6 @@
 <template>
   <h2>User update : {{ data }}</h2>
+  <input type="text" v-model="userUpdate" />
   <button @click="back">Back</button>
 </template>
 
@@ -10,6 +11,7 @@ import { router } from "../../router";
 export default {
   data() {
     return {
+      userUpdate: "",
       data: "",
     };
   },
@@ -19,6 +21,11 @@ export default {
   methods: {
     back() {
       router.back();
+    },
+  },
+  watch: {
+    userUpdate(newData, oldData) {
+      console.log("new :", newData, " - old :", oldData);
     },
   },
 };
